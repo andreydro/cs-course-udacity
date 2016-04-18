@@ -80,3 +80,71 @@ print find_element([1,2,3],3)
 
 print find_element(['alpha','beta'],'gamma')
 #>>> -1
+
+#multiply all elements of list
+def product_list(list_of_numbers):
+    result = 1
+    if len(list_of_numbers) >= 1:
+        for e in list_of_numbers:
+            result *= e
+        return result
+    else:
+        return 1
+
+print product_list([9])
+#>>> 9
+
+print product_list([1,2,3,4])
+#>>> 24
+
+print product_list([])
+#>>> 1
+
+# print out greatest number of list
+def greatest(list_of_numbers):
+    num = 0
+    for e in list_of_numbers:
+        if e > num:
+            num = e
+    return num
+
+print greatest([4,23,1])
+#>>> 23
+print greatest([])
+#>>> 0
+
+#print out number of sudents and total tuition
+udacious_univs = [['Udacity',90000,0]]
+
+usa_univs = [ ['California Institute of Technology',2175,37704],
+              ['Harvard',19627,39849],
+              ['Massachusetts Institute of Technology',10566,40732],
+              ['Princeton',7802,37000],
+              ['Rice',5879,35551],
+              ['Stanford',19535,40569],
+              ['Yale',11701,40500]  ]
+
+def total_enrollment(p):
+    t_students = 0
+    t_tuition = 0
+    for uni, students, price in p:
+        t_students = t_students + students
+        t_tuition = t_tuition + students * price
+    return t_students, t_tuition
+
+print total_enrollment(udacious_univs)
+#>>> (90000,0)
+
+print total_enrollment(usa_univs)
+#>>> (77285,3058581079)
+
+# diffirence between adding and appending
+list1 = [1,2,3,4]
+list2 = [1,2,3,4]
+
+list1 = list1 + [5, 6]
+list2.append([5, 6])
+
+print "showing list1 and list2:"
+print list1
+print list2
