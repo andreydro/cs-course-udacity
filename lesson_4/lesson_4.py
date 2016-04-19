@@ -48,3 +48,30 @@ add_page_to_index(index,'fake.text',"This is a test")
 print index
 #>>> [['This', ['fake.text']], ['is', ['fake.text']], ['a', ['fake.text']],
 #>>> ['test',['fake.text']]]
+
+# split the string with choosen characters
+def split_string(source,splitlist):
+    output = []
+    atsplit = True
+    for char in source:
+        if char in splitlist:
+            atsplit = True
+        else:
+            if atsplit:
+                output.append(char)
+                atsplit = False
+            else:
+                output[-1] = output[-1] + char
+    return output
+
+# time spent at routers
+total_time = 75
+one_way_distance = 2500.0
+optic_speed = 200000
+ms_per_second = 1000
+
+# calculations
+time_on_the_wires = 2 * one_way_distance / optic_speed * ms_per_second
+
+total_time_at_routers = total_time - time_on_the_wires
+print total_time_at_routers
